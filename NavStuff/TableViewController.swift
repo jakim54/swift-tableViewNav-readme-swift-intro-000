@@ -10,16 +10,33 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    let dirtyDancingSoundtrack = [
+        "(I've Had) The Time Of My life",
+        "Be My Baby",
+        "She's Like The Wind",
+        "Hungry Eyes",
+        "STAY",
+        "Yes",
+        "You Don't Own Me",
+        "Hey Baby",
+        "Overload",
+        "Love Is Strange",
+        "Where Are You Tonight?",
+        "In The Still Of The Night"
+    ]
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return dirtyDancingSoundtrack.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DirtyCell", for: indexPath)
+        let songTitle = dirtyDancingSoundtrack[indexPath.row]
+        cell.textLabel?.text = songTitle
+        return cell
     }
 }
